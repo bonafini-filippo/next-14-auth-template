@@ -10,5 +10,16 @@ export const sendVerificationMail = async (email: string, token: string) => {
         to: email,
         subject: "Confirm your email",
         html: `<p>Click <a href="${confirmLink}">here</a> to confierm.</p>`
-    })
-}
+    });
+};
+
+export const sendPasswordResetMail = async (email: string, token: string) => {
+    const resetLink = `${process.env.BASE_URL}/auth/new-password?token=${token}`;
+
+    await resend.emails.send({
+        from: "reset@fb-development.com",
+        to: email,
+        subject: "Reset your password",
+        html: `<p>Click <a href="${resetLink}">here</a> to reset password</p>`
+    });
+};
