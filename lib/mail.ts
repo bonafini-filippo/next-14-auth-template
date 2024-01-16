@@ -2,6 +2,7 @@ import email from "next-auth/providers/email";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const domain = process.env.NEXT_PUBLIC_APP_URL;
 
 export const sendTwoFactorTokenEmail = async (
     email: string,
@@ -16,7 +17,7 @@ export const sendTwoFactorTokenEmail = async (
 };
 
 export const sendVerificationMail = async (email: string, token: string) => {
-    const confirmLink = `${process.env.NEXT_PUBLIC_APP_URL}/auth/new-verification?token=${token}`;
+    const confirmLink = `${domain}/auth/new-verification?token=${token}`;
 
     await resend.emails.send({
         from: "verification@fb-development.com",
@@ -27,7 +28,7 @@ export const sendVerificationMail = async (email: string, token: string) => {
 };
 
 export const sendPasswordResetMail = async (email: string, token: string) => {
-    const resetLink = `${process.env.NEXT_PUBLIC_APP_URL}/auth/new-password?token=${token}`;
+    const resetLink = `${domain}/auth/new-password?token=${token}`;
 
     await resend.emails.send({
         from: "reset@fb-development.com",
