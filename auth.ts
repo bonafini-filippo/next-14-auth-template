@@ -5,6 +5,7 @@ import { getUserById } from "@/data/user"
 import { db } from "@/lib/db"
 import authConfig from "@/auth.config"
 import { UserRole } from "@prisma/client"
+import { getTwoFactorConfermationByUserId } from "@/data/two-factor-confermation"
 
 export const {
     handlers: { GET, POST },
@@ -26,12 +27,23 @@ export const {
     },
     callbacks: {
         async signIn({ user, account }) {
+
             //allow Oauth without email verificatioon
             if (account?.provider !== "credentials") return true;
             const existingUser = await getUserById(user.id);
+
             //prevent sign in without email verification
             if (!existingUser?.emailVerified) return false;
-            //add 2FA check
+
+            //2FA check
+            if (existingUser.isTwoFactorEnabled) {
+                const twoFactorConfermation = await getTwoFactorConfermationByUserId(existingUser.id);
+                if (!twoFactorConfermation) return false;
+                await db.twoFactorConfirmation.delete({
+                    where: { id: twoFactorConfermation.id }
+                });
+            }
+
             return true;
         },
         async session({ token, session }) {
@@ -41,6 +53,9 @@ export const {
             if (token.role && session.user) {
                 session.user.role = token.role as UserRole;
             }
+            if (session.user) {
+                session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean;
+            }
             return session;
         },
         async jwt({ token }) {
@@ -48,6 +63,7 @@ export const {
             const existingUser = await getUserById(token.sub);
             if (!existingUser) return token;
             token.role = existingUser.role;
+            token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
             return token;
         },
     },
