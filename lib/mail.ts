@@ -16,7 +16,7 @@ export const sendTwoFactorTokenEmail = async (
 };
 
 export const sendVerificationMail = async (email: string, token: string) => {
-    const confirmLink = `${process.env.BASE_URL}/auth/new-verification?token=${token}`;
+    const confirmLink = `${process.env.NEXT_PUBLIC_APP_URL}/auth/new-verification?token=${token}`;
 
     await resend.emails.send({
         from: "verification@fb-development.com",
@@ -27,7 +27,7 @@ export const sendVerificationMail = async (email: string, token: string) => {
 };
 
 export const sendPasswordResetMail = async (email: string, token: string) => {
-    const resetLink = `${process.env.BASE_URL}/auth/new-password?token=${token}`;
+    const resetLink = `${process.env.NEXT_PUBLIC_APP_URL}/auth/new-password?token=${token}`;
 
     await resend.emails.send({
         from: "reset@fb-development.com",
