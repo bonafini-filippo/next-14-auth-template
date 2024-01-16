@@ -23,6 +23,7 @@ export const Social = () => {
                 className="w-full"
                 variant="outline"
                 onClick={() => onClick("google")}
+                aria-label="Google-Login"
             >
                 <FcGoogle className="h-5 w-5" />
             </Button>
