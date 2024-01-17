@@ -70,14 +70,14 @@ export default function Header() {
                         </Button>
                     ))}
                 </div>
-                <div className="w-[72px] md:hidden flex justify-center items-center z-50" onClick={toggleMenu}>
+                <div className="w-[72px] md:hidden flex justify-center items-center z-50 cursor-pointer" onClick={toggleMenu}>
                     {openMenu ?
                         <IoCloseOutline className="w-9 h-9 " /> :
                         <CiMenuBurger className="w-7 h-7 " />
                     }
                 </div>
             </nav>
-            <div className="px-4 z-50">
+            <div className="px-4">
                 <UserButton />
             </div>
 
