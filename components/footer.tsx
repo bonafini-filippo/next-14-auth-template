@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="p-4 bg-zinc-100 md:p-8 lg:p-10 dark:bg-gray-800">
+        <footer className="p-4 bg-zinc-50 md:p-8 lg:p-10 dark:bg-gray-800">
             <div className="mx-auto max-w-screen-xl text-center">
                 {/*  <Link href="#" className="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
                     <Image width={100} height={100} alt="Logo-Fb-Development" src="/logo-black.svg" />
