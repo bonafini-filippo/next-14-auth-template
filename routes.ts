@@ -5,6 +5,11 @@
  */
 export const publicRoutes = [
     "/",
+    "/mission",
+    "/about",
+    "/services",
+    "/projects",
+    "/contacts",
     "/auth/new-verification"
 ];
 

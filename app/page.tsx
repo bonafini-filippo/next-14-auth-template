@@ -12,16 +12,16 @@ const font = Poppins({
 export default function Home() {
   return (
     <main>
-      <main className="flex h-screen flex-col items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-900">
+      <main>
         <div className="space-y-6 text-center">
           <h1 className=
             {cn(
-              "text-6xl font-semibold text-white drop-shadow-sm",
+              "text-6xl font-semibold drop-shadow-sm",
               font.className
             )}>
             🔐AUTH
           </h1>
-          <p className="text-xl text-white">
+          <p className="text-xl ">
             A simple authentication service
           </p>
           <div>
