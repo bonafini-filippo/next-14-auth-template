@@ -6,10 +6,15 @@ import { UserButton } from "@/components/auth/user-button";
 import Image from "next/image";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
+import { useState } from "react";
 
 export default function Header() {
     const pathname = usePathname();
+    const [openMenu, setOpenMenu] = useState<boolean>(false);
 
+    const toggleMenu = () => {
+        setOpenMenu(!openMenu);
+    };
 
     const pages = [
         {
@@ -48,22 +53,23 @@ export default function Header() {
                     </Button>
                 </div>
 
-                <div className="flex gap-8 flex-col md:relative absolute backdrop-blur-3xl z-30 top-0 left-0 right-0 bottom-0 md:block md:bg-transparent">
-                    <div className="md:hidden text-end p-5 cursor-pointer">
+                <div className={`flex gap-10 flex-col md:relative absolute backdrop-blur-3xl z-30 top-0 duration-100 left-0 overflow-hidden  bottom-0 md:block md:bg-transparent ${openMenu ? "right-0" : "right-full"}`}>
+                    <div className="md:hidden h-[66px] flex items-center ml-4 cursor-pointer" onClick={toggleMenu}>
                         <IoCloseOutline className="w-9 h-9" />
                     </div>
                     {pages.map(page => (
                         <Button
+                            className="text-5xl md:text-base"
                             key={page.label}
                             asChild
                             variant={pathname === page.href ? "link" : "link"}>
-                            <Link href={page.href} className="text-5xl md:text-md">
+                            <Link href={page.href}>
                                 {page.label}
                             </Link>
                         </Button>
                     ))}
                 </div>
-                <div className="w-[72px] md:hidden flex justify-center items-center">
+                <div className="w-[72px] md:hidden flex justify-center items-center" onClick={toggleMenu}>
                     <CiMenuBurger className="w-7 h-7 mr-2" />
                 </div>
             </nav>
