@@ -1,20 +1,20 @@
-import AboutSection from "@/components/sections/about-section"
 import HeroSection from "@/components/sections/hero-section"
 
-const HeroImage = "/hero.png"
+const HeroImage = "/jumbo.jpeg"
 
 export default function Home() {
   return (<>
     <HeroSection
-      title="Il sito per la tua attività"
+      subtitle="FB Development"
+      title="Realizziamo il sito per la tua attività!"
       slogan="Relizziamo siti web performanti, di ultima generazione insieme a te!"
       actionLabel="Contattaci"
       actionUrl="/contacts"
       secondaryActionLabel="Esplora"
       secondaryActionUrl="/services"
       image={HeroImage}
-      imageAlt=""
+      imageAlt="Bg-hero"
     />
-    <AboutSection />
+
   </>)
 }

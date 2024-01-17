@@ -1,8 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Button } from "../ui/button"
+import { actionAsyncStorage } from "next/dist/client/components/action-async-storage.external"
 
 interface typesHeroSection {
     title: string,
+    subtitle: string,
     slogan: string,
     actionLabel: string,
     actionUrl: string,
@@ -12,23 +15,47 @@ interface typesHeroSection {
     imageAlt: string
 }
 
-export default function HeroSection({ title, slogan, actionLabel, actionUrl, secondaryActionLabel, secondaryActionUrl, image, imageAlt }: typesHeroSection) {
+export default function HeroSection({ title, subtitle, slogan, actionLabel, actionUrl, secondaryActionLabel, secondaryActionUrl, image, imageAlt }: typesHeroSection) {
     return (
-        <section className="bg-white dark:bg-gray-900">
-            <div className="grid container px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-                <div className="mr-auto place-self-center lg:col-span-7">
-                    <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">{title}</h1>
-                    <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">{slogan}</p>
-                    <Link href={actionUrl} className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center bg-black text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                        {actionLabel}
-                        <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    </Link>
-                    {secondaryActionLabel && secondaryActionUrl && <Link href={secondaryActionUrl} className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                        {secondaryActionLabel}
-                    </Link>}
-                </div>
-                <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                    <Image src={image} width={700} height={700} alt={imageAlt} />
+        <section className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
+            <div className="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
+                <svg
+                    className="absolute left-0 hidden h-full text-white transform -translate-x-1/2 lg:block"
+                    viewBox="0 0 100 100"
+                    fill="currentColor"
+                    preserveAspectRatio="none slice"
+                >
+                    <path d="M50 0H100L50 100H0L50 0Z" />
+                </svg>
+                <Image
+                    className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
+                    width={1260}
+                    height={750}
+                    src={image}
+                    alt={imageAlt}
+                />
+            </div>
+            <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
+                <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
+                    <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+                        {subtitle}
+                    </p>
+                    <h1 className="mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+                        {title}
+                    </h1>
+                    <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
+                        {slogan}
+                    </p>
+                    <div className="flex gap-2 items-center">
+                        <Button variant="outline">
+                            <Link href={actionUrl}>{actionLabel}</Link>
+                        </Button>
+                        {secondaryActionLabel && secondaryActionUrl && <Button variant="link">
+                            <Link href={secondaryActionUrl}>
+                                {secondaryActionLabel}
+                            </Link>
+                        </Button>}
+                    </div>
                 </div>
             </div>
         </section>
