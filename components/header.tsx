@@ -5,6 +5,7 @@ import Link from "next/link";
 import { UserButton } from "@/components/auth/user-button";
 import Image from "next/image";
 import { CiMenuBurger } from "react-icons/ci";
+import { IoCloseOutline } from "react-icons/io5";
 
 export default function Header() {
     const pathname = usePathname();
@@ -36,7 +37,7 @@ export default function Header() {
     return (
         <header className="flex  justify-between items-center py-3 ">
             <nav className="flex flex-grow items-center md:flex-row flex-row-reverse md:gap-x-2">
-                <div className="flex flex-grow md:flex-grow-0">
+                <div className="flex flex-grow md:flex-grow-0  z-50 ">
                     <Button
                         className="m-auto md:m-0"
                         asChild
@@ -47,13 +48,16 @@ export default function Header() {
                     </Button>
                 </div>
 
-                <div className="hidden md:block">
+                <div className="flex gap-8 flex-col md:relative absolute backdrop-blur-3xl z-30 top-0 left-0 right-0 bottom-0 md:block md:bg-transparent">
+                    <div className="md:hidden text-end p-5 cursor-pointer">
+                        <IoCloseOutline className="w-9 h-9" />
+                    </div>
                     {pages.map(page => (
                         <Button
                             key={page.label}
                             asChild
                             variant={pathname === page.href ? "link" : "link"}>
-                            <Link href={page.href}>
+                            <Link href={page.href} className="text-5xl md:text-md">
                                 {page.label}
                             </Link>
                         </Button>
@@ -62,7 +66,6 @@ export default function Header() {
                 <div className="w-[72px] md:hidden flex justify-center items-center">
                     <CiMenuBurger className="w-7 h-7 mr-2" />
                 </div>
-
             </nav>
             <div className="px-4">
                 <UserButton />
