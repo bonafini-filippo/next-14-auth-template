@@ -50,6 +50,7 @@ export default function Header() {
                 <div className="hidden md:block">
                     {pages.map(page => (
                         <Button
+                            key={page.label}
                             asChild
                             variant={pathname === page.href ? "link" : "link"}>
                             <Link href={page.href}>
