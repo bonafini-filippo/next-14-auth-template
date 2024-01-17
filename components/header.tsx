@@ -56,7 +56,7 @@ export default function Header() {
                     }
                 </div>
             </nav>
-            <div className="px-4">
+            <div className="px-4 flex justify-center items-center">
                 <UserButton />
             </div>
 
