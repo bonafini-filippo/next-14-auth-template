@@ -62,9 +62,9 @@ export default function Header() {
                             key={page.label}
                             asChild
                             variant={pathname === page.href ? "link" : "link"}
-                            onClick={toggleMenu}>
+                        >
 
-                            <Link href={page.href}>
+                            <Link href={page.href} onClick={() => { setOpenMenu(false) }}>
                                 {page.label}
                             </Link>
                         </Button>
