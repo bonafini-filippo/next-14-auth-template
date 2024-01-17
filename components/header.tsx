@@ -53,7 +53,7 @@ export default function Header() {
                     </Button>
                 </div>
 
-                <div className={`flex gap-10 flex-col md:relative absolute backdrop-blur-3xl z-30 top-0 duration-100 left-0 overflow-hidden  bottom-0 md:block md:bg-transparent ${openMenu ? "right-0" : "right-full"}`}>
+                <div className={`flex gap-10 flex-col md:relative absolute bg-white backdrop-blur-3xl z-30 top-0 duration-100 left-0 overflow-hidden  bottom-0 md:block md:bg-transparent ${openMenu ? "right-0" : "right-full"}`}>
                     <div className="md:hidden h-[66px] flex items-center ml-4 cursor-pointer" onClick={toggleMenu}>
                         <IoCloseOutline className="w-9 h-9" />
                     </div>
