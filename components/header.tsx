@@ -73,7 +73,7 @@ export default function Header() {
                     <CiMenuBurger className="w-7 h-7 mr-2" />
                 </div>
             </nav>
-            <div className="px-4">
+            <div className="px-4 z-50">
                 <UserButton />
             </div>
 
