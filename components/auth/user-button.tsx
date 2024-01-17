@@ -37,7 +37,7 @@ export const UserButton = () => {
                     </AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-40" align="end">
+            <DropdownMenuContent className="w-48" align="end">
                 {user ? (<>
                     <Link href="/dashboard">
                         <DropdownMenuItem className="cursor-pointer">
