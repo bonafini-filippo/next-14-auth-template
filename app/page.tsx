@@ -1,9 +1,10 @@
+import AboutSection from "@/components/sections/about-section"
 import HeroSection from "@/components/sections/hero-section"
 
 const HeroImage = "/hero.png"
 
 export default function Home() {
-  return (
+  return (<>
     <HeroSection
       title="Il sito per la tua attività"
       slogan="Relizziamo siti web performanti, di ultima generazione insieme a te!"
@@ -14,5 +15,6 @@ export default function Home() {
       image={HeroImage}
       imageAlt=""
     />
-  )
+    <AboutSection />
+  </>)
 }
