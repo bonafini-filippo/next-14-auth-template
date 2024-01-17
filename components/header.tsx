@@ -53,10 +53,8 @@ export default function Header() {
                     </Button>
                 </div>
 
-                <div className={`flex gap-10 flex-col md:relative absolute bg-white backdrop-blur-3xl z-30 top-0 duration-100 left-0 overflow-hidden  bottom-0 md:block md:bg-transparent ${openMenu ? "right-0" : "right-full"}`}>
-                    <div className="md:hidden h-[66px] flex items-center ml-4 cursor-pointer" onClick={toggleMenu}>
-                        <IoCloseOutline className="w-9 h-9" />
-                    </div>
+                <div className={`flex gap-10 flex-col md:relative absolute bg-white backdrop-blur-3xl z-30 top-0 duration-100 left-0 overflow-hidden  bottom-0 md:block md:bg-transparent pt-24 ${openMenu ? "right-0" : "right-full"}`}>
+
                     {pages.map(page => (
                         <Button
                             className="text-5xl md:text-base"
@@ -69,8 +67,11 @@ export default function Header() {
                         </Button>
                     ))}
                 </div>
-                <div className="w-[72px] md:hidden flex justify-center items-center" onClick={toggleMenu}>
-                    <CiMenuBurger className="w-7 h-7 mr-2" />
+                <div className="w-[72px] md:hidden flex justify-center items-center z-50" onClick={toggleMenu}>
+                    {openMenu ?
+                        <IoCloseOutline className="w-9 h-9 mr-2" /> :
+                        <CiMenuBurger className="w-7 h-7" />
+                    }
                 </div>
             </nav>
             <div className="px-4 z-50">
