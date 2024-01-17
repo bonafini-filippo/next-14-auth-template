@@ -13,7 +13,7 @@ export default function Footer() {
                 <nav>
                     <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
                         {pages.map(page => (
-                            <li>
+                            <li key={page.label}>
                                 <Link className="mr-4 hover:underline md:mr-6" href={page.href}>{page.label}</Link>
                             </li>
                         ))}

@@ -20,7 +20,7 @@ export default function Header() {
 
     return (
         <header className="flex  justify-between items-center py-3 bg-zinc-100 ">
-            <nav className="flex flex-grow items-center md:flex-row flex-row-reverse md:gap-x-2">
+            <nav className="flex flex-grow items-center md:flex-row  flex-row-reverse md:gap-x-2">
                 <div className="flex flex-grow md:flex-grow-0  z-50 ">
                     <Button
                         className="m-auto md:m-0"
@@ -33,7 +33,7 @@ export default function Header() {
                     </Button>
                 </div>
 
-                <div className={`flex gap-10 flex-col md:relative absolute  backdrop-blur-2xl z-30 top-0 duration-100 left-0 overflow-hidden  bottom-0 md:block md:bg-transparent md:pt-0 pt-24 ${openMenu ? "right-0" : "right-full"}`}>
+                <div className={`flex gap-10 flex-col md:relative absolute bg-zinc-100  backdrop-blur-2xl z-30 top-0 duration-100 left-0 overflow-hidden  bottom-0 md:block md:bg-transparent md:pt-0 pt-24 ${openMenu ? "right-0" : "right-full"}`}>
 
                     {pages.map(page => (
                         <Button
