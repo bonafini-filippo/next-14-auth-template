@@ -67,7 +67,7 @@ export const RegisterForm = () => {
                             name="name"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Name</FormLabel>
+                                    <FormLabel>Name*</FormLabel>
                                     <FormControl>
                                         <Input
                                             {...field}
@@ -83,7 +83,7 @@ export const RegisterForm = () => {
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Email</FormLabel>
+                                    <FormLabel>Email*</FormLabel>
                                     <FormControl>
                                         <Input
                                             {...field}
@@ -101,7 +101,7 @@ export const RegisterForm = () => {
                             name="password"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Password</FormLabel>
+                                    <FormLabel>Password*</FormLabel>
                                     <FormControl>
                                         <Input
                                             {...field}
