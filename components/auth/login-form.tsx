@@ -75,7 +75,7 @@ export const LoginForm = () => {
         <CardWrapper
             headerLabel="Welcome"
             backButtonLabel="Don't have an account?"
-            baclButtonHref="/auth/register"
+            baclButtonHref="/register"
             showSocial
         >
             <Form {...form}>
@@ -142,7 +142,7 @@ export const LoginForm = () => {
                                                 asChild
                                                 className="px-0 font-normal"
                                             >
-                                                <Link href="/auth/reset">
+                                                <Link href="/reset">
                                                     Forgot password?
                                                 </Link>
                                             </Button>

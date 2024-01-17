@@ -72,8 +72,8 @@ export default function Header() {
                 </div>
                 <div className="w-[72px] md:hidden flex justify-center items-center z-50" onClick={toggleMenu}>
                     {openMenu ?
-                        <IoCloseOutline className="w-9 h-9 mr-2" /> :
-                        <CiMenuBurger className="w-7 h-7" />
+                        <IoCloseOutline className="w-9 h-9 " /> :
+                        <CiMenuBurger className="w-7 h-7 " />
                     }
                 </div>
             </nav>

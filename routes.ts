@@ -10,7 +10,7 @@ export const publicRoutes = [
     "/services",
     "/projects",
     "/contacts",
-    "/auth/new-verification"
+    "/new-verification"
 ];
 
 /**
@@ -19,11 +19,11 @@ export const publicRoutes = [
  * @type{string[]}
  */
 export const authRoutes = [
-    "/auth/login",
-    "/auth/register",
-    "/auth/error",
-    "/auth/reset",
-    "/auth/new-password"
+    "/login",
+    "/register",
+    "/error",
+    "/reset",
+    "/new-password"
 ]
 
 /**
