@@ -33,7 +33,7 @@ export const UserButton = () => {
                 <Avatar>
                     <AvatarImage src={user?.image || ""} />
                     <AvatarFallback >
-                        <CiUser className="w-7 h-7" />
+                        <CiUser className="w-8 h-8" />
                     </AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>

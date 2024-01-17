@@ -34,7 +34,7 @@ export default function Header() {
     ]
 
     return (
-        <header className="flex  justify-between items-center py-3 border mb-10">
+        <header className="flex  justify-between items-center py-3 ">
             <nav className="flex flex-grow items-center md:flex-row flex-row-reverse md:gap-x-2">
                 <div className="flex flex-grow md:flex-grow-0">
                     <Button
