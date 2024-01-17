@@ -1,8 +1,6 @@
 "use client";
 
-import { FaUser } from "react-icons/fa6";
 import { CiLogout, CiLogin, CiEdit, CiUser, CiServer, CiSettings } from "react-icons/ci";
-
 
 import {
     DropdownMenu,
