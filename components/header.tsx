@@ -45,6 +45,7 @@ export default function Header() {
                 <div className="flex flex-grow md:flex-grow-0  z-50 ">
                     <Button
                         className="m-auto md:m-0"
+                        onClick={toggleMenu}
                         asChild
                         variant={pathname === "/" ? "link" : "link"}>
                         <Link href="/">
@@ -60,7 +61,9 @@ export default function Header() {
                             className="text-5xl md:text-base"
                             key={page.label}
                             asChild
-                            variant={pathname === page.href ? "link" : "link"}>
+                            variant={pathname === page.href ? "link" : "link"}
+                            onClick={toggleMenu}>
+
                             <Link href={page.href}>
                                 {page.label}
                             </Link>
