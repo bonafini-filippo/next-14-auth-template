@@ -7,6 +7,7 @@ import Image from "next/image";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 import { useState } from "react";
+import { pages } from "@/lib/pages";
 
 export default function Header() {
     const pathname = usePathname();
@@ -16,31 +17,9 @@ export default function Header() {
         setOpenMenu(!openMenu);
     };
 
-    const pages = [
-        {
-            label: "Mission",
-            href: "/mission"
-        },
-        {
-            label: "About",
-            href: "/about"
-        },
-        {
-            label: "Services",
-            href: "/services"
-        },
-        {
-            label: "Projects",
-            href: "/projects"
-        },
-        {
-            label: "Contacts",
-            href: "/contacts"
-        },
-    ]
 
     return (
-        <header className="flex  justify-between items-center py-3 ">
+        <header className="flex  justify-between items-center py-3 bg-zinc-100 ">
             <nav className="flex flex-grow items-center md:flex-row flex-row-reverse md:gap-x-2">
                 <div className="flex flex-grow md:flex-grow-0  z-50 ">
                     <Button

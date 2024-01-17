@@ -1,38 +1,18 @@
-import { Poppins } from "next/font/google"
-import { cn } from "@/lib/utils"
+import HeroSection from "@/components/sections/hero-section"
 
-import { Button } from "@/components/ui/button"
-import { LoginButton } from "@/components/auth/login-button"
-
-const font = Poppins({
-  subsets: ["latin"],
-  weight: ["600"]
-})
+const HeroImage = "/hero.png"
 
 export default function Home() {
   return (
-    <main>
-      <main>
-        <div className="space-y-6 text-center">
-          <h1 className=
-            {cn(
-              "text-6xl font-semibold drop-shadow-sm",
-              font.className
-            )}>
-            🔐AUTH
-          </h1>
-          <p className="text-xl ">
-            A simple authentication service
-          </p>
-          <div>
-            <LoginButton mode="modal" asChild>
-              <Button variant="secondary" size="lg">
-                Sign in
-              </Button>
-            </LoginButton>
-          </div>
-        </div>
-      </main>
-    </main>
+    <HeroSection
+      title="Il sito per la tua attività"
+      slogan="Relizziamo siti web performanti, di ultima generazione insieme a te!"
+      actionLabel="Contattaci"
+      actionUrl="/contacts"
+      secondaryActionLabel="Esplora"
+      secondaryActionUrl="/services"
+      image={HeroImage}
+      imageAlt=""
+    />
   )
 }
