@@ -41,33 +41,33 @@ export const UserButton = () => {
                 {user ? (<>
                     <Link href="/dashboard">
                         <DropdownMenuItem className="cursor-pointer">
-                            <CiServer className="w-4 h-4 mr-2" />
-                            Dashboard
+                            <CiServer className="w-8 h-8 lg:w-4 lg:h-4 mr-2" />
+                            <span className="text-xl lg:text-base">Dashboard</span>
                         </DropdownMenuItem>
                     </Link>
                     <Link href="/settings">
                         <DropdownMenuItem className="cursor-pointer">
-                            <CiSettings className="w-4 h-4 mr-2" />
-                            Settings
+                            <CiSettings className="w-8 h-8 lg:w-4 lg:h-4 mr-2" />
+                            <span className="text-xl lg:text-base">Settings</span>
                         </DropdownMenuItem>
                     </Link>
                     <LogoutButton >
                         <DropdownMenuItem className="cursor-pointer">
-                            <CiLogout className="w-4 h-4 mr-2" />
-                            Logout
+                            <CiLogout className="w-8 h-8 lg:w-4 lg:h-4 mr-2" />
+                            <span className="text-xl lg:text-base">Logout</span>
                         </DropdownMenuItem>
                     </LogoutButton>
                 </>) : (<>
                     <LoginButton asChild>
                         <DropdownMenuItem className="cursor-pointer">
-                            <CiLogin className="w-4 h-4 mr-2" />
-                            Login
+                            <CiLogin className="w-8 h-8 lg:w-4 lg:h-4 mr-2" />
+                            <span className="text-xl lg:text-base">Login</span>
                         </DropdownMenuItem>
                     </LoginButton>
                     <RegisterButton asChild>
                         <DropdownMenuItem className="cursor-pointer">
-                            <CiEdit className="w-4 h-4 mr-2" />
-                            Register
+                            <CiEdit className="w-8 h-8 lg:w-4 lg:h-4 mr-2" />
+                            <span className="text-xl lg:text-base">Register</span>
                         </DropdownMenuItem>
                     </RegisterButton>
                 </>)}
