@@ -12,10 +12,11 @@ export default async function ProtectedLayout({ children }: ProtectedLayoutProps
 
     return (
         <SessionProvider session={session}>
-            <div className='h-full flex flex-col gap-6 items-center justify-center  bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-900'>
-                <Navbar />
+            <Navbar />
+            <div className="flex justify-center mt-20">
                 {children}
             </div>
+
         </SessionProvider>
     );
 };
