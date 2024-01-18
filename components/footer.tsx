@@ -19,7 +19,7 @@ export default function Footer() {
                         ))}
                     </ul>
                 </nav>
-                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" className="hover:underline">FB-Development</a>. All Rights Reserved.</span>
+                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://www.fb-development.com/" className="hover:underline">FB-Development</a>. All Rights Reserved.</span>
             </div>
         </footer>
     )

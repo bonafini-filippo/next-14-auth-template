@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "../ui/button"
-import { actionAsyncStorage } from "next/dist/client/components/action-async-storage.external"
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 interface typesHeroSection {
     title: string,
@@ -47,12 +47,13 @@ export default function HeroSection({ title, subtitle, slogan, actionLabel, acti
                         {slogan}
                     </p>
                     <div className="flex gap-2 items-center">
-                        <Button variant="outline">
+                        <Button variant="default">
                             <Link href={actionUrl}>{actionLabel}</Link>
                         </Button>
                         {secondaryActionLabel && secondaryActionUrl && <Button variant="link">
-                            <Link href={secondaryActionUrl}>
+                            <Link href={secondaryActionUrl} className="flex items-center justify-center gap-0.5">
                                 {secondaryActionLabel}
+                                <IoIosArrowRoundForward size={20} />
                             </Link>
                         </Button>}
                     </div>

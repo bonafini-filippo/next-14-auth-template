@@ -6,8 +6,8 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
             <div>
                 {children}
             </div>
-            <div className="lg:flex justify-center items-center hidden animate-fly">
-                <Image src="/login.png" width={400} height={400} className="" alt="login-form-image" quality={100} />
+            <div className="lg:flex justify-center items-center hidden">
+                <Image src="/login.png" width={400} height={400} className=" animate-fly" alt="login-form-image" quality={100} />
             </div>
         </section>
     );
