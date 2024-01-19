@@ -9,7 +9,6 @@ import { Metadata } from 'next'
 import { MetadataLayout } from '@/lib/pages'
 const inter = Inter({ subsets: ['latin'] })
 
-
 export const metadata: Metadata = MetadataLayout;
 
 export default async function RootLayout({
@@ -22,7 +21,7 @@ export default async function RootLayout({
 
   return (
     <SessionProvider session={session}>
-      <html lang="en">
+      <html>
         <body className={`${inter.className}`}>
           <Header />
           <main>
