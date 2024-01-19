@@ -17,10 +17,10 @@ interface typesHeroSection {
 
 export default function HeroSection({ title, subtitle, slogan, actionLabel, actionUrl, secondaryActionLabel, secondaryActionUrl, image, imageAlt }: typesHeroSection) {
     return (
-        <section className="relative  py-16 lg:pt-0 lg:flex-col lg:pb-0">
+        <section className="relative  py-8 lg:pt-0 lg:flex-col lg:pb-0">
             <div className="grid lg:grid-cols-2 w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
 
-                <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
+                <div className="mb-2 lg:my-40 lg:max-w-lg lg:pr-5">
                     <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
                         {subtitle}
                     </p>
