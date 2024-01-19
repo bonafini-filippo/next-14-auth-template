@@ -1,6 +1,6 @@
 import HeroSection from "@/components/sections/hero-section"
 
-const HeroImage = "/jumbo.jpeg"
+const HeroImage = "/hero.png"
 
 export default function Home() {
   return (<>
