@@ -14,7 +14,7 @@ const SettingsPage = () => {
 
 
     return (
-        <Card className="w-screen md:w-[600px] shadow-md">
+        <Card className="shadow-md">
             <CardHeader>
                 <p className="text-2xl font-semibold text-center">
                     ⚙️ Settings
