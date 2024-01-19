@@ -9,6 +9,7 @@ import { Metadata } from 'next'
 import { MetadataLayout } from '@/lib/pages'
 const inter = Inter({ subsets: ['latin'] })
 
+
 export const metadata: Metadata = MetadataLayout;
 
 export default async function RootLayout({
