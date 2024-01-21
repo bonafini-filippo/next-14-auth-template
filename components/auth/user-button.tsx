@@ -35,37 +35,37 @@ export const UserButton = () => {
                     </AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-48" align="end">
+            <DropdownMenuContent className="w-40" align="end">
                 {user ? (<>
                     <Link href="/dashboard">
                         <DropdownMenuItem className="cursor-pointer">
-                            <CiServer className="w-8 h-8 lg:w-4 lg:h-4 mr-2" />
-                            <span className="text-xl lg:text-base">Dashboard</span>
+                            <CiServer className="w-6 h-6 lg:w-4 lg:h-4 mr-2" />
+                            <span className="text-lg lg:text-base">Dashboard</span>
                         </DropdownMenuItem>
                     </Link>
                     <Link href="/settings">
                         <DropdownMenuItem className="cursor-pointer">
-                            <CiSettings className="w-8 h-8 lg:w-4 lg:h-4 mr-2" />
-                            <span className="text-xl lg:text-base">Settings</span>
+                            <CiSettings className="w-6 h-6 lg:w-4 lg:h-4 mr-2" />
+                            <span className="text-lg lg:text-base">Settings</span>
                         </DropdownMenuItem>
                     </Link>
                     <LogoutButton >
                         <DropdownMenuItem className="cursor-pointer">
-                            <CiLogout className="w-8 h-8 lg:w-4 lg:h-4 mr-2" />
-                            <span className="text-xl lg:text-base">Logout</span>
+                            <CiLogout className="w-6 h-6 lg:w-4 lg:h-4 mr-2" />
+                            <span className="text-lg lg:text-base">Logout</span>
                         </DropdownMenuItem>
                     </LogoutButton>
                 </>) : (<>
                     <LoginButton asChild>
                         <DropdownMenuItem className="cursor-pointer">
-                            <CiLogin className="w-8 h-8 lg:w-4 lg:h-4 mr-2" />
-                            <span className="text-xl lg:text-base">Login</span>
+                            <CiLogin className="w-6 h-6 lg:w-4 lg:h-4 mr-2" />
+                            <span className="text-lg lg:text-base">Login</span>
                         </DropdownMenuItem>
                     </LoginButton>
                     <RegisterButton asChild>
                         <DropdownMenuItem className="cursor-pointer">
-                            <CiEdit className="w-8 h-8 lg:w-4 lg:h-4 mr-2" />
-                            <span className="text-xl lg:text-base">Register</span>
+                            <CiEdit className="w-6 h-6 lg:w-4 lg:h-4 mr-2" />
+                            <span className="text-lg lg:text-base">Register</span>
                         </DropdownMenuItem>
                     </RegisterButton>
                 </>)}
