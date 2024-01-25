@@ -1,37 +1,17 @@
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { Toaster } from '@/components/ui/sonner'
-import { auth } from '@/auth'
+import { auth } from '@/auth';
 import { SessionProvider } from 'next-auth/react'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
-import { Metadata } from 'next'
-import { MetadataLayout } from '@/lib/pages'
-const inter = Inter({ subsets: ['latin'] })
-
-
-export const metadata: Metadata = MetadataLayout;
 
 export default async function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode
+    children: React.ReactNode
 }) {
 
-  const session = await auth();
+    const session = await auth();
 
-  return (
-    <SessionProvider session={session}>
-      <html>
-        <body className={`${inter.className}`}>
-          <Header />
-          <main>
+    return (
+        <SessionProvider session={session}>
             {children}
-          </main>
-          <Footer />
-          <Toaster />
-        </body>
-      </html>
-    </SessionProvider>
-  )
+        </SessionProvider>
+    )
 }

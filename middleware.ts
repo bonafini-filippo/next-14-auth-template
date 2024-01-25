@@ -1,5 +1,6 @@
 import authConfig from "@/auth.config"
 import NextAuth from "next-auth"
+import { NextRequest, NextResponse } from 'next/server'
 
 import {
     DEFAULT_LOGIN_REDIRECT,
@@ -8,18 +9,60 @@ import {
     publicRoutes,
 } from "@/routes"
 
+import { match as matchLocale } from '@formatjs/intl-localematcher'
+import Negotiator from "negotiator"
+
 const { auth } = NextAuth(authConfig)
 
-export default auth((req) => {
+let defaultLocale = "it"
+let locales = ["en", "it", "de"]
+
+function getLocale(request: NextRequest): string {
+    const negotiatorHeaders: Record<string, string> = {};
+    request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
+
+    const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
+
+    const locale = matchLocale(languages, locales, defaultLocale);
+    return locale;
+}
+
+function withLanguage(languages: string[], lang: string): string[] {
+    const updatedLanguages: string[] = languages.map(language => lang + language);
+    return updatedLanguages;
+}
+
+
+const middleware = auth((req) => {
+
+    const pathname = req.nextUrl.pathname;
+    const apiRoutePrefixes = ['/api'];
+    const pathnameIsMissingLocale = locales.every(
+        (locale) => {
+            const isApiRoute = apiRoutePrefixes.some(prefix => pathname.startsWith(prefix));
+            return !isApiRoute && !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`;
+        }
+    );
+    const locale = getLocale(req);
+
+
     const { nextUrl } = req;
     const isLoggedIn = !!req.auth;
-
     const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
-    const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
-    const isAuthRoute = authRoutes.includes(nextUrl.pathname);
+
+    const publicRoutesWithLang = publicRoutes.map
+
+    const isPublicRoute = withLanguage(publicRoutes, `/${locale}`).includes(nextUrl.pathname);
+    const isAuthRoute = withLanguage(authRoutes, `/${locale}`).includes(nextUrl.pathname);
 
     if (isApiAuthRoute) {
         return null;
+    }
+
+    if (pathnameIsMissingLocale) {
+        return NextResponse.redirect(
+            new URL(`/${locale}/${pathname}`, req.url)
+        );
     }
 
     if (isAuthRoute) {
@@ -38,13 +81,16 @@ export default auth((req) => {
         const encodedCallbackUrl = encodeURIComponent(callbackUrl);
 
         return Response.redirect(new URL(
-            `/login?callbackUrl=${encodedCallbackUrl}`,
+            `/${locale}/login?callbackUrl=${encodedCallbackUrl}`,
             nextUrl
         ));
     }
 
     return null;
 })
+
+export default middleware;
+
 
 
 export const config = {
