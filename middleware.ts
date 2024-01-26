@@ -50,8 +50,6 @@ const middleware = auth((req) => {
     const isLoggedIn = !!req.auth;
     const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
 
-    const publicRoutesWithLang = publicRoutes.map
-
     const isPublicRoute = withLanguage(publicRoutes, `/${locale}`).includes(nextUrl.pathname);
     const isAuthRoute = withLanguage(authRoutes, `/${locale}`).includes(nextUrl.pathname);
 
@@ -60,8 +58,10 @@ const middleware = auth((req) => {
     }
 
     if (pathnameIsMissingLocale) {
+        const params = req.nextUrl.search
+
         return NextResponse.redirect(
-            new URL(`/${locale}/${pathname}`, req.url)
+            new URL(`/${locale}/${pathname}${params}`, req.url)
         );
     }
 
