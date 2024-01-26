@@ -21,6 +21,13 @@
             "href": "/projects"
         }
     },
+    "userMenu": {
+        "login": "Accedi",
+        "register": "Registrati",
+        "dashboard": "Dashboard",
+        "settings": "Impostazioni",
+        "logout": "Esci"
+    },
     "messages": {
         "errors": {
             "generic": "Ops, qualcosa è andato storto!"
@@ -32,6 +39,20 @@
     "homeDict": {
         "title": "Pagina principale",
         "subtitle": "Sottotitolo delle pagina principale"
+    },
+    "settingsDict": {
+        "errors": {},
+        "title": "Impostazioni",
+        "fields": {
+            "name": "Nome",
+            "newPassword": "Nuova password",
+            "role": "Ruolo",
+            "adminRole": "Amministratore",
+            "userRole": "Utente",
+            "twoFactorsTitle": "Autenticazione a due fattori",
+            "twoFactorsText": "Abilita l'autenticazione a due fattori per questo account.",
+            "saveButton": "Salva"
+        }
     },
     "loginDict": {
         "errors": {

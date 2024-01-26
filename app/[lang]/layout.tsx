@@ -20,12 +20,13 @@ export default async function RootLayout({
   params: { lang: Locale }
 }) {
 
-  const { pages } = await getDictionary(lang)
+  const { pages, userMenu } = await getDictionary(lang)
+  const dictionariesForHeader = { pages, userMenu };
 
   return (
     <html lang={lang}>
       <body className={`${inter.className}`}>
-        <Header pages={pages} />
+        <Header dictionaries={dictionariesForHeader} />
         <main>
           {children}
         </main>

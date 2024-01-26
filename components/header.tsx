@@ -7,10 +7,9 @@ import Image from "next/image";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 import { useState } from "react";
-import { Locale } from "@/i18n.config";
 
-export default function Header({ pages }: any) {
-
+export default function Header({ dictionaries }: any) {
+    const { pages, userMenu } = dictionaries;
     const pathname = usePathname();
     const [openMenu, setOpenMenu] = useState<boolean>(false);
 
@@ -61,7 +60,7 @@ export default function Header({ pages }: any) {
                 </div>
             </nav>
             <div className="px-4 flex justify-center items-center">
-                <UserButton />
+                <UserButton dictionaries={userMenu} />
             </div>
 
         </header>

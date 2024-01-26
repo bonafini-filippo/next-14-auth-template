@@ -35,7 +35,8 @@ import { UserRole } from "@prisma/client";
 
 
 
-export default function SettingsForm() {
+export default function SettingsForm({ dictionaries }: any) {
+    const { messages, settingsDict } = dictionaries
 
     const user = useCurrentUser();
 
@@ -69,7 +70,7 @@ export default function SettingsForm() {
                         setSuccess(data.success);
                     }
                 })
-                .catch(() => setError("Something went wrong!"));
+                .catch(() => setError(messages.errors.generic));
         });
     }
 
@@ -85,7 +86,7 @@ export default function SettingsForm() {
                         name="name"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Name</FormLabel>
+                                <FormLabel>{settingsDict.fields.name}</FormLabel>
                                 <FormControl>
                                     <Input
                                         {...field}
@@ -140,7 +141,7 @@ export default function SettingsForm() {
                                 name="newPassword"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>New Password</FormLabel>
+                                        <FormLabel>{settingsDict.fields.newPassword}</FormLabel>
                                         <FormControl>
                                             <Input
                                                 {...field}
@@ -160,7 +161,7 @@ export default function SettingsForm() {
                         name="role"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Role</FormLabel>
+                                <FormLabel>{settingsDict.fields.role}</FormLabel>
                                 <Select
                                     disabled={isPending}
                                     onValueChange={field.onChange}
@@ -173,10 +174,10 @@ export default function SettingsForm() {
                                     </FormControl>
                                     <SelectContent>
                                         <SelectItem value={UserRole.ADMIN}>
-                                            Admin
+                                            {settingsDict.fields.adminRole}
                                         </SelectItem>
                                         <SelectItem value={UserRole.USER}>
-                                            User
+                                            {settingsDict.fields.userRole}
                                         </SelectItem>
                                     </SelectContent>
                                 </Select>
@@ -191,9 +192,9 @@ export default function SettingsForm() {
                             render={({ field }) => (
                                 <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
                                     <div className="space-y-0.5">
-                                        <FormLabel>Two Factor Authentication</FormLabel>
+                                        <FormLabel>{settingsDict.fields.twoFactorsTitle}</FormLabel>
                                         <FormDescription>
-                                            Enable two factor authentication for your account
+                                            {settingsDict.fields.twoFactorsText}
                                         </FormDescription>
                                     </div>
                                     <FormControl>
@@ -214,7 +215,7 @@ export default function SettingsForm() {
                     disabled={isPending}
                     type="submit"
                 >
-                    Save
+                    {settingsDict.fields.saveButton}
                 </Button>
             </form>
         </Form>
