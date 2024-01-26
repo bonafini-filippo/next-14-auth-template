@@ -2,12 +2,18 @@ import HeroSection from "@/components/sections/hero-section"
 
 const HeroImage = "/hero.png"
 
-export default function Home() {
+import { getDictionary } from "./dictionaries"
+
+export default async function Home({ params: { lang } }: any) {
+
+  const dict = await getDictionary(lang)
+
+
   return (<>
     <HeroSection
       subtitle="FB Development"
-      title="Realizziamo il sito per la tua attività!"
-      slogan="Relizziamo siti web performanti, di ultima generazione insieme a te!"
+      title={dict.home.title}
+      slogan={dict.home.subtitle}
       actionLabel="Contattaci"
       actionUrl="/contacts"
       secondaryActionLabel="Esplora"

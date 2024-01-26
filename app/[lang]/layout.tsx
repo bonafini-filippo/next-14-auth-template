@@ -12,14 +12,13 @@ export const metadata: Metadata = MetadataLayout;
 
 export default async function RootLayout({
   children,
-  params
+  params: { lang }
 }: {
   children: React.ReactNode
   params: any
 }) {
-
   return (
-    <html>
+    <html lang={lang}>
       <body className={`${inter.className}`}>
         <Header />
         <main>
