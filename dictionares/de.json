@@ -1,9 +1,5 @@
 {
     "pages": {
-        "home": {
-            "label": "Startseite",
-            "href": "/"
-        },
         "mission": {
             "label": "Mission",
             "href": "/mission"
@@ -25,8 +21,52 @@
             "href": "/projects"
         }
     },
-    "home": {
-        "title": "Startseite",
-        "subtitle": "Untertitel der Startseite"
+    "messages": {
+        "errors": {
+            "generic": "Oops, etwas ist schief gelaufen!"
+        },
+        "common": {
+            "backToLogin": "Zurück zum Login"
+        }
+    },
+    "homeDict": {
+        "title": "Hauptseite",
+        "subtitle": "Untertitel der Hauptseite"
+    },
+    "loginDict": {
+        "errors": {
+            "emailWithDiffrentProvider": "E-Mail in Verwendung bei einem anderen Anbieter!"
+        },
+        "title": "Anmelden",
+        "loginButtonConfirm": "Anmelden",
+        "twoFactorButtonConfirm": "Bestätigen",
+        "noAccount": "Sie haben kein Konto?",
+        "fotgotPassword": "Passwort vergessen?",
+        "twoFactorCode": "Zwei-Faktor-Authentifizierung"
+    },
+    "registerDict": {
+        "errors": {
+            "EmailWithDiffrentProvider": "E-Mail in Verwendung bei einem anderen Anbieter!"
+        },
+        "nameField": "Name",
+        "title": "Registrieren",
+        "registerButton": "Registrieren",
+        "haveAccount": "Haben Sie bereits ein Konto?"
+    },
+    "resetDict": {
+        "errors": {},
+        "title": "Passwort vergessen?",
+        "sendMailButton": "Passwort zurücksetzen"
+    },
+    "newPasswordDict": {
+        "errors": {},
+        "title": "Neues Passwort eingeben",
+        "setPasswordButton": "Passwort zurücksetzen"
+    },
+    "newVerificationDict": {
+        "errors": {
+            "missingToken": "Fehlendes Token!"
+        },
+        "title": "Kontoüberprüfung"
     }
 }

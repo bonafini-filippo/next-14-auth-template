@@ -1,7 +1,7 @@
 'use client'
 
 import { useForm } from "react-hook-form";
-import { useState, useTransition } from "react";
+import { SetStateAction, useState, useTransition } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -24,7 +24,8 @@ import { register } from "@/actions/register";
 
 
 
-export const RegisterForm = () => {
+export const RegisterForm = ({ dictionaries }: any) => {
+    const { registerDict, messages } = dictionaries;
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
     const [isPending, startTransition] = useTransition();
@@ -51,8 +52,8 @@ export const RegisterForm = () => {
 
     return (
         <CardWrapper
-            headerLabel="Register"
-            backButtonLabel="Already have an account?"
+            headerLabel={registerDict.title}
+            backButtonLabel={registerDict.haveAccount}
             baclButtonHref="/login"
             showSocial
         >
@@ -67,7 +68,7 @@ export const RegisterForm = () => {
                             name="name"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Name*</FormLabel>
+                                    <FormLabel>{registerDict.nameField}*</FormLabel>
                                     <FormControl>
                                         <Input
                                             {...field}
@@ -122,7 +123,7 @@ export const RegisterForm = () => {
                         type="submit"
                         className="w-full"
                     >
-                        Register
+                        {registerDict.registerButton}
                     </Button>
                 </form>
             </Form>

@@ -1,9 +1,5 @@
 {
     "pages": {
-        "home": {
-            "label": "Home",
-            "href": "/"
-        },
         "mission": {
             "label": "Mission",
             "href": "/mission"
@@ -25,8 +21,52 @@
             "href": "/projects"
         }
     },
-    "home": {
+    "messages": {
+        "errors": {
+            "generic": "Oops, something went wrong!"
+        },
+        "common": {
+            "backToLogin": "Back to login"
+        }
+    },
+    "homeDict": {
         "title": "Main Page",
         "subtitle": "Subtitle of the main page"
+    },
+    "loginDict": {
+        "errors": {
+            "emailWithDiffrentProvider": "Email in use with a different provider!"
+        },
+        "title": "Log In",
+        "loginButtonConfirm": "Log In",
+        "twoFactorButtonConfirm": "Confirm",
+        "noAccount": "Don't have an account?",
+        "fotgotPassword": "Forgot password?",
+        "twoFactorCode": "Two-Factor Authentication"
+    },
+    "registerDict": {
+        "errors": {
+            "EmailWithDiffrentProvider": "Email in use with a different provider!"
+        },
+        "nameField": "Name",
+        "title": "Register",
+        "registerButton": "Register",
+        "haveAccount": "Already have an account?"
+    },
+    "resetDict": {
+        "errors": {},
+        "title": "Forgot Password?",
+        "sendMailButton": "Reset Password"
+    },
+    "newPasswordDict": {
+        "errors": {},
+        "title": "Enter New Password",
+        "setPasswordButton": "Reset Password"
+    },
+    "newVerificationDict": {
+        "errors": {
+            "missingToken": "Missing Token!"
+        },
+        "title": "Account Verification"
     }
 }

@@ -25,8 +25,8 @@ import { reset } from "@/actions/reset";
 
 
 
-export const ResetForm = () => {
-
+export const ResetForm = ({ dictionaries }: any) => {
+    const { resetDict, messages } = dictionaries;
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
     const [isPending, startTransition] = useTransition();
@@ -51,8 +51,8 @@ export const ResetForm = () => {
 
     return (
         <CardWrapper
-            headerLabel="Forgot your password?"
-            backButtonLabel="Back to login"
+            headerLabel={resetDict.title}
+            backButtonLabel={messages.common.backToLogin}
             baclButtonHref="/login"
         >
             <Form {...form}>
@@ -87,7 +87,7 @@ export const ResetForm = () => {
                         type="submit"
                         className="w-full"
                     >
-                        Send reset email
+                        {resetDict.sendMailButton}
                     </Button>
                 </form>
             </Form>

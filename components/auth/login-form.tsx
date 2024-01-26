@@ -1,7 +1,7 @@
 'use client'
 
 import { useForm } from "react-hook-form";
-import { useState, useTransition } from "react";
+import { SetStateAction, useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,13 +26,12 @@ import Link from "next/link";
 
 
 
-export const LoginForm = () => {
-
+export const LoginForm = ({ dictionaries }: any) => {
+    const { loginDict, messages } = dictionaries;
     const searchParams = useSearchParams();
     const callbackUrl = searchParams.get("callbackUrl");
-
     const urlError = searchParams.get("error") === "OAuthAccountNotLinked"
-        ? "Email already in use with diffrent provider! "
+        ? (loginDict.errors.emailWithDiffrentProvider)
         : "";
 
     const [showTwoFactor, setShowTwoFactor] = useState(false);
@@ -67,14 +66,14 @@ export const LoginForm = () => {
                     setShowTwoFactor(true);
                 }
             })
-                .catch(() => setError("Something went wrong!"))
+                .catch(() => setError(messages.errors.generic))
         })
     }
 
     return (
         <CardWrapper
-            headerLabel="Login"
-            backButtonLabel="Don't have an account?"
+            headerLabel={loginDict.title}
+            backButtonLabel={loginDict.noAccount}
             baclButtonHref="/register"
             showSocial
         >
@@ -90,7 +89,7 @@ export const LoginForm = () => {
                                 name="code"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Two Factor Code</FormLabel>
+                                        <FormLabel>{loginDict.twoFactorCode}</FormLabel>
                                         <FormControl>
                                             <Input
                                                 {...field}
@@ -143,7 +142,7 @@ export const LoginForm = () => {
                                                 className="px-0 font-normal"
                                             >
                                                 <Link href="/reset">
-                                                    Forgot password?
+                                                    {loginDict.fotgotPassword}
                                                 </Link>
                                             </Button>
                                             <FormMessage />
@@ -158,7 +157,7 @@ export const LoginForm = () => {
                         type="submit"
                         className="w-full"
                     >
-                        {showTwoFactor ? "Confirm" : "Login"}
+                        {showTwoFactor ? (loginDict.twoFactorButtonConfirm) : (loginDict.loginButtonConfirm)}
 
                     </Button>
                 </form>

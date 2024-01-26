@@ -26,7 +26,8 @@ import { newPassword } from "@/actions/new-password";
 
 
 
-export const NewPasswordForm = () => {
+export const NewPasswordForm = ({ dictionaries }: any) => {
+    const { newPasswordDict, messages } = dictionaries;
     const searchParams = useSearchParams();
     const token = searchParams.get("token");
 
@@ -54,8 +55,8 @@ export const NewPasswordForm = () => {
 
     return (
         <CardWrapper
-            headerLabel="Enter a new password"
-            backButtonLabel="Back to login"
+            headerLabel={newPasswordDict.title}
+            backButtonLabel={messages.common.backToLogin}
             baclButtonHref="/login"
         >
             <Form {...form}>
@@ -90,7 +91,7 @@ export const NewPasswordForm = () => {
                         type="submit"
                         className="w-full"
                     >
-                        Reset password
+                        {newPasswordDict.setPasswordButton}
                     </Button>
                 </form>
             </Form>

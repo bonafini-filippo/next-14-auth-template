@@ -2,12 +2,12 @@
 import { CardWrapper } from "@/components/auth/card-wrapper";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
-export const ErrorCard = () => {
+export const ErrorCard = ({ messages }: any) => {
     return (
         <CardWrapper
-            headerLabel="Oops! Something went wrong!"
+            headerLabel={messages.errors.generic}
             baclButtonHref="/login"
-            backButtonLabel="Back to login"
+            backButtonLabel={messages.common.backToLogin}
         >
             <div className="w-full flex justify-center items-center">
                 <ExclamationTriangleIcon className="text-destructive w-10 h-10" />

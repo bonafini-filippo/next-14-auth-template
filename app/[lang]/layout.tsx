@@ -6,7 +6,7 @@ import Footer from '@/components/footer'
 import { Metadata } from 'next'
 import { MetadataLayout } from '@/lib/pages'
 import { Locale } from '@/i18n.config'
-import { getDictionary } from './dictionaries'
+import { getDictionary } from '@/lib/dictionaries';
 
 const inter = Inter({ subsets: ['latin'] })
 

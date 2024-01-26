@@ -1,9 +1,5 @@
 {
     "pages": {
-        "home": {
-            "label": "Home",
-            "href": "/"
-        },
         "mission": {
             "label": "Missione",
             "href": "/mission"
@@ -25,8 +21,52 @@
             "href": "/projects"
         }
     },
-    "home": {
+    "messages": {
+        "errors": {
+            "generic": "Ops, qualcosa è andato storto!"
+        },
+        "common": {
+            "backToLogin": "Torna al login"
+        }
+    },
+    "homeDict": {
         "title": "Pagina principale",
         "subtitle": "Sottotitolo delle pagina principale"
+    },
+    "loginDict": {
+        "errors": {
+            "emailWithDiffrentProvider": "Email in uso con un differente provider!"
+        },
+        "title": "Accedi",
+        "loginButtonConfirm": "Accedi",
+        "twoFactorButtonConfirm": "Conferma",
+        "noAccount": "Non hai un account?",
+        "fotgotPassword": "Password smarrita?",
+        "twoFactorCode:": "Autenticazione a 2 fattori"
+    },
+    "registerDict": {
+        "errors": {
+            "EmailWithDiffrentProvider": "Email in uso con un differente provider!"
+        },
+        "nameField": "Nome",
+        "title": "Registrati",
+        "registerButton": "Registrati",
+        "haveAccount": "Hai già un account?"
+    },
+    "resetDict": {
+        "errors": {},
+        "title": "Password smarrita?",
+        "sendMailButton": "Reimposta la password"
+    },
+    "newPasswordDict": {
+        "errors": {},
+        "title": "Inserisci nuova password",
+        "setPasswordButton": "Reimposta la password"
+    },
+    "newVerificationDict": {
+        "errors": {
+            "missingToken": "Token Mancante!"
+        },
+        "title": "Verifica account"
     }
 }

@@ -9,7 +9,8 @@ import { CardWrapper } from "@/components/auth/card-wrapper";
 import { FormError } from "@/components/form-error";
 import { FormSuccess } from "@/components/form-success";
 
-export const NewVerificationForm = () => {
+export const NewVerificationForm = ({ dictionaries }: any) => {
+    const { newVerificationDict, messages } = dictionaries;
     const [error, setError] = useState<string | undefined>()
     const [success, setSuccess] = useState<string | undefined>()
 
@@ -22,7 +23,7 @@ export const NewVerificationForm = () => {
         if (success || error) return;
 
         if (!token) {
-            setError("Missing token!")
+            setError(newVerificationDict.errors.missingToken)
             return;
         };
         newVerification(token)
@@ -31,7 +32,7 @@ export const NewVerificationForm = () => {
                 setError(data.error);
             })
             .catch(() => {
-                setError("Something went wrong!");
+                setError(messages.errors.generic);
             })
     }, [token, success, error]);
 
@@ -40,8 +41,8 @@ export const NewVerificationForm = () => {
     }, [onSubmit]);
     return (
         <CardWrapper
-            headerLabel="Confirming your verification"
-            backButtonLabel="Back to login"
+            headerLabel={newVerificationDict.title}
+            backButtonLabel={messages.common.backToLogin}
             baclButtonHref="/login"
         >
             <div className="flex items-center w-full justify-center">

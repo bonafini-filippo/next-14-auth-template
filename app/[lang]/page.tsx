@@ -2,18 +2,17 @@ import HeroSection from "@/components/sections/hero-section"
 
 const HeroImage = "/hero.png"
 
-import { getDictionary } from "./dictionaries"
+import { getDictionary } from '@/lib/dictionaries';
 
 export default async function Home({ params: { lang } }: any) {
 
-  const dict = await getDictionary(lang)
-
+  const { homeDict } = await getDictionary(lang)
 
   return (<>
     <HeroSection
       subtitle="FB Development"
-      title={dict.home.title}
-      slogan={dict.home.subtitle}
+      title={homeDict.title}
+      slogan={homeDict.subtitle}
       actionLabel="Contattaci"
       actionUrl="/contacts"
       secondaryActionLabel="Esplora"
