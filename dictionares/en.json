@@ -21,6 +21,13 @@
             "href": "/projects"
         }
     },
+    "userMenu": {
+        "login": "Log In",
+        "register": "Register",
+        "dashboard": "Dashboard",
+        "settings": "Settings",
+        "logout": "Logout"
+    },
     "messages": {
         "errors": {
             "generic": "Oops, something went wrong!"
@@ -32,6 +39,20 @@
     "homeDict": {
         "title": "Main Page",
         "subtitle": "Subtitle of the main page"
+    },
+    "settingsDict": {
+        "errors": {},
+        "title": "Settings",
+        "fields": {
+            "name": "Name",
+            "newPassword": "New Password",
+            "role": "Role",
+            "adminRole": "Administrator",
+            "userRole": "User",
+            "twoFactorsTitle": "Two-Factor Authentication",
+            "twoFactorsText": "Enable two-factor authentication for this account.",
+            "saveButton": "Save"
+        }
     },
     "loginDict": {
         "errors": {

@@ -21,6 +21,13 @@
             "href": "/projects"
         }
     },
+    "userMenu": {
+        "login": "Anmelden",
+        "register": "Registrieren",
+        "dashboard": "Dashboard",
+        "settings": "Einstellungen",
+        "logout": "Abmelden"
+    },
     "messages": {
         "errors": {
             "generic": "Oops, etwas ist schief gelaufen!"
@@ -32,6 +39,20 @@
     "homeDict": {
         "title": "Hauptseite",
         "subtitle": "Untertitel der Hauptseite"
+    },
+    "settingsDict": {
+        "errors": {},
+        "title": "Einstellungen",
+        "fields": {
+            "name": "Name",
+            "newPassword": "Neues Passwort",
+            "role": "Rolle",
+            "adminRole": "Administrator",
+            "userRole": "Benutzer",
+            "twoFactorsTitle": "Zwei-Faktor-Authentifizierung",
+            "twoFactorsText": "Aktivieren Sie die Zwei-Faktor-Authentifizierung für dieses Konto.",
+            "saveButton": "Speichern"
+        }
     },
     "loginDict": {
         "errors": {
