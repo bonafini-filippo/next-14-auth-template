@@ -1,6 +1,32 @@
 {
+    "pages": {
+        "home": {
+            "label": "Startseite",
+            "href": "/"
+        },
+        "mission": {
+            "label": "Mission",
+            "href": "/mission"
+        },
+        "about": {
+            "label": "Über uns",
+            "href": "/about"
+        },
+        "contacts": {
+            "label": "Kontakte",
+            "href": "/contacts"
+        },
+        "services": {
+            "label": "Dienstleistungen",
+            "href": "/services"
+        },
+        "projects": {
+            "label": "Projekte",
+            "href": "/projects"
+        }
+    },
     "home": {
-        "title": "Hauptseite",
-        "subtitle": "Untertitel der Hauptseite"
+        "title": "Startseite",
+        "subtitle": "Untertitel der Startseite"
     }
 }

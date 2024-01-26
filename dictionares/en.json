@@ -1,6 +1,32 @@
 {
+    "pages": {
+        "home": {
+            "label": "Home",
+            "href": "/"
+        },
+        "mission": {
+            "label": "Mission",
+            "href": "/mission"
+        },
+        "about": {
+            "label": "About Us",
+            "href": "/about"
+        },
+        "contacts": {
+            "label": "Contacts",
+            "href": "/contacts"
+        },
+        "services": {
+            "label": "Services",
+            "href": "/services"
+        },
+        "projects": {
+            "label": "Projects",
+            "href": "/projects"
+        }
+    },
     "home": {
         "title": "Main Page",
-        "subtitle": "Subtitle of main page"
+        "subtitle": "Subtitle of the main page"
     }
 }

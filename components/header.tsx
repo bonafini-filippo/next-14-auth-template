@@ -7,9 +7,10 @@ import Image from "next/image";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 import { useState } from "react";
-import { pages } from "@/lib/pages";
+import { Locale } from "@/i18n.config";
 
-export default function Header() {
+export default function Header({ pages }: any) {
+
     const pathname = usePathname();
     const [openMenu, setOpenMenu] = useState<boolean>(false);
 
@@ -35,19 +36,22 @@ export default function Header() {
 
                 <div className={`flex gap-12 flex-col md:relative absolute bg-zinc-50 backdrop-blur-2xl z-30 top-0 duration-100 left-0 overflow-hidden  bottom-0 md:block md:bg-transparent md:pt-0 pt-24 ${openMenu ? "right-0" : "right-full"}`}>
 
-                    {pages.map(page => (
-                        <Button
-                            className="text-4xl md:text-base"
-                            key={page.label}
-                            asChild
-                            variant={pathname === page.href ? "link" : "link"}
-                            onClick={toggleMenu}>
-
-                            <Link href={page.href}>
-                                {page.label}
-                            </Link>
-                        </Button>
-                    ))}
+                    {Object.keys(pages).map(key => {
+                        const page = pages[key];
+                        return (
+                            <Button
+                                className="text-4xl md:text-base"
+                                key={page.label}
+                                asChild
+                                variant={pathname === page.href ? "link" : "link"}
+                                onClick={toggleMenu}
+                            >
+                                <Link href={page.href}>
+                                    {page.label}
+                                </Link>
+                            </Button>
+                        );
+                    })}
                 </div>
                 <div className="w-[72px] md:hidden flex justify-center items-center z-50 cursor-pointer" onClick={toggleMenu}>
                     {openMenu ?

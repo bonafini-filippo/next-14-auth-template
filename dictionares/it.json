@@ -1,4 +1,30 @@
 {
+    "pages": {
+        "home": {
+            "label": "Home",
+            "href": "/"
+        },
+        "mission": {
+            "label": "Missione",
+            "href": "/mission"
+        },
+        "about": {
+            "label": "Chi siamo",
+            "href": "/about"
+        },
+        "contacts": {
+            "label": "Contatti",
+            "href": "/contacts"
+        },
+        "services": {
+            "label": "Servizi",
+            "href": "/services"
+        },
+        "projects": {
+            "label": "Progetti",
+            "href": "/projects"
+        }
+    },
     "home": {
         "title": "Pagina principale",
         "subtitle": "Sottotitolo delle pagina principale"

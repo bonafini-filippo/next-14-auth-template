@@ -11,11 +11,12 @@ import {
 
 import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from "negotiator"
+import { i18n } from "./i18n.config"
 
 const { auth } = NextAuth(authConfig)
 
-let defaultLocale = "it"
-let locales = ["en", "it", "de"]
+let defaultLocale = i18n.defaultLocale
+let locales = i18n.locales
 
 function getLocale(request: NextRequest): string {
     const negotiatorHeaders: Record<string, string> = {};
