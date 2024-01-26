@@ -44,6 +44,7 @@ const middleware = auth((req) => {
             return !isApiRoute && !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`;
         }
     );
+
     const locale = getLocale(req);
 
 
@@ -57,6 +58,7 @@ const middleware = auth((req) => {
     if (isApiAuthRoute) {
         return null;
     }
+
 
     if (pathnameIsMissingLocale) {
         const params = req.nextUrl.search
@@ -72,6 +74,7 @@ const middleware = auth((req) => {
         }
         return null;
     }
+
 
     if (!isLoggedIn && !isPublicRoute) {
         let callbackUrl = nextUrl.pathname;

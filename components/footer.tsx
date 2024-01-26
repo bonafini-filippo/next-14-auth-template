@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LocaleSwitcher from "./locale-switcher";
 
 export default function Footer({ pages }: any) {
     return (
@@ -16,6 +17,7 @@ export default function Footer({ pages }: any) {
                         })}
                     </ul>
                 </nav>
+                <LocaleSwitcher />
                 <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://www.fb-development.com/" className="hover:underline">FB-Development</a>. All Rights Reserved.</span>
             </div>
         </footer>
