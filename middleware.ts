@@ -24,7 +24,11 @@ function getLocale(request: NextRequest): string {
 
     const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
 
-    const locale = matchLocale(languages, locales, defaultLocale);
+
+    const localeFromPath = request.nextUrl.pathname.split('/')[1];
+
+    const locale = matchLocale(languages, locales, defaultLocale) || localeFromPath;
+
     return locale;
 }
 
@@ -59,6 +63,16 @@ const middleware = auth((req) => {
         return null;
     }
 
+
+    if (req.nextUrl.pathname === "/en") {
+        const params = req.nextUrl.search
+
+        console.log("ciao")
+
+        return NextResponse.redirect(
+            new URL(`/en/${pathname}${params}`, req.url)
+        );
+    }
 
     if (pathnameIsMissingLocale) {
         const params = req.nextUrl.search
