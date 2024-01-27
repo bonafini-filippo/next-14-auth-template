@@ -56,17 +56,6 @@ const middleware = auth((req) => {
         return null;
     }
 
-
-    if (req.nextUrl.pathname === "/en") {
-        const params = req.nextUrl.search
-
-        console.log("ciao")
-
-        return NextResponse.redirect(
-            new URL(`/en/${pathname}${params}`, req.url)
-        );
-    }
-
     if (pathnameIsMissingLocale) {
         const params = req.nextUrl.search
 
