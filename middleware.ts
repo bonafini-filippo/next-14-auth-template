@@ -19,16 +19,9 @@ let defaultLocale = i18n.defaultLocale
 let locales = i18n.locales
 
 function getLocale(request: NextRequest): string {
-    const negotiatorHeaders: Record<string, string> = {};
-    request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
-
-    const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
-
-
-    const localeFromPath = request.nextUrl.pathname.split('/')[1];
-
-    const locale = matchLocale(languages, locales, defaultLocale) || localeFromPath;
-
+    const pathnameParts = request.nextUrl.pathname.split('/');
+    const localeFromPath: any = pathnameParts[1]; // Ottieni la lingua dall'URL
+    const locale = locales.includes(localeFromPath) ? localeFromPath : defaultLocale; // Usa la lingua dall'URL se valida, altrimenti usa la lingua predefinita
     return locale;
 }
 
