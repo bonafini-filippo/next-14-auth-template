@@ -60,7 +60,7 @@ export default function Header({ dictionaries, lang }: any) {
                 </div>
             </nav>
             <div className="px-4 flex justify-center items-center">
-                <UserButton dictionaries={userMenu} />
+                <UserButton dictionaries={userMenu} lang={lang} />
             </div>
 
         </header>

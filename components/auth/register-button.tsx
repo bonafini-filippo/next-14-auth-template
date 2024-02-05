@@ -13,18 +13,20 @@ interface RegisterButtonProps {
     children: React.ReactNode;
     mode?: "modal" | "redirect";
     asChild?: boolean;
+    lang: any
 }
 
 export const RegisterButton = ({
     children,
     mode = "redirect",
-    asChild
+    asChild,
+    lang
 }: RegisterButtonProps) => {
 
     const router = useRouter();
 
     const onClick = () => {
-        router.push("/register")
+        router.push(`/${lang}/register`)
     }
 
     if (mode === "modal") {

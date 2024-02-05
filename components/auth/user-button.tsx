@@ -21,7 +21,7 @@ import { RegisterButton } from "./register-button";
 import Link from "next/link";
 
 
-export const UserButton = ({ dictionaries }: any) => {
+export const UserButton = ({ dictionaries, lang }: any) => {
 
     const menuDict = dictionaries;
 
@@ -39,13 +39,13 @@ export const UserButton = ({ dictionaries }: any) => {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-40" align="end">
                 {user ? (<>
-                    <Link href="/dashboard">
+                    <Link href={`/${lang}/dashboard`}>
                         <DropdownMenuItem className="cursor-pointer">
                             <CiServer className="w-6 h-6 lg:w-4 lg:h-4 mr-2" />
                             <span className="text-lg lg:text-base">{menuDict.dashboard}</span>
                         </DropdownMenuItem>
                     </Link>
-                    <Link href="/settings">
+                    <Link href={`/${lang}/settings`}>
                         <DropdownMenuItem className="cursor-pointer">
                             <CiSettings className="w-6 h-6 lg:w-4 lg:h-4 mr-2" />
                             <span className="text-lg lg:text-base">{menuDict.settings}</span>
@@ -58,13 +58,13 @@ export const UserButton = ({ dictionaries }: any) => {
                         </DropdownMenuItem>
                     </LogoutButton>
                 </>) : (<>
-                    <LoginButton asChild>
+                    <LoginButton asChild lang={lang}>
                         <DropdownMenuItem className="cursor-pointer">
                             <CiLogin className="w-6 h-6 lg:w-4 lg:h-4 mr-2" />
                             <span className="text-lg lg:text-base">{menuDict.login}</span>
                         </DropdownMenuItem>
                     </LoginButton>
-                    <RegisterButton asChild>
+                    <RegisterButton asChild lang={lang}>
                         <DropdownMenuItem className="cursor-pointer">
                             <CiEdit className="w-6 h-6 lg:w-4 lg:h-4 mr-2" />
                             <span className="text-lg lg:text-base">{menuDict.register}</span>
