@@ -16,7 +16,7 @@ const LoginPage = async ({
     const dictionariesForLoginForm = { loginDict, messages };
 
     return (
-        <LoginForm dictionaries={dictionariesForLoginForm} />
+        <LoginForm dictionaries={dictionariesForLoginForm} lang={lang} />
     )
 }
 

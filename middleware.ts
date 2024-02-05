@@ -18,10 +18,23 @@ const { auth } = NextAuth(authConfig)
 let defaultLocale = i18n.defaultLocale
 let locales = i18n.locales
 
+
+
+
 function getLocale(request: NextRequest): string {
-    const pathnameParts = request.nextUrl.pathname.split('/');
-    const localeFromPath: any = pathnameParts[1]; // Ottieni la lingua dall'URL
-    const locale = locales.includes(localeFromPath) ? localeFromPath : defaultLocale; // Usa la lingua dall'URL se valida, altrimenti usa la lingua predefinita
+    const negotiatorHeaders: Record<string, string> = {};
+    request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
+
+    const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
+    const currentLocale = request.nextUrl.pathname.split('/')[1];
+
+
+    if (languages.includes(currentLocale)) {
+        const locale = currentLocale;
+        return locale;
+    }
+
+    const locale = matchLocale(languages, locales, defaultLocale);
     return locale;
 }
 
@@ -43,7 +56,6 @@ const middleware = auth((req) => {
     );
 
     const locale = getLocale(req);
-
 
     const { nextUrl } = req;
     const isLoggedIn = !!req.auth;
@@ -77,8 +89,8 @@ const middleware = auth((req) => {
         if (nextUrl.search) {
             callbackUrl += nextUrl.search;
         }
-
         const encodedCallbackUrl = encodeURIComponent(callbackUrl);
+
 
         return Response.redirect(new URL(
             `/${locale}/login?callbackUrl=${encodedCallbackUrl}`,

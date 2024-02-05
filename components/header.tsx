@@ -8,15 +8,15 @@ import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 import { useState } from "react";
 
-export default function Header({ dictionaries }: any) {
+export default function Header({ dictionaries, lang }: any) {
     const { pages, userMenu } = dictionaries;
+
     const pathname = usePathname();
     const [openMenu, setOpenMenu] = useState<boolean>(false);
 
     const toggleMenu = () => {
         setOpenMenu(!openMenu);
     };
-
 
     return (
         <header className="flex  justify-between items-center py-3 bg-zinc-50 ">
@@ -26,8 +26,8 @@ export default function Header({ dictionaries }: any) {
                         className="m-auto md:m-0"
                         onClick={() => { setOpenMenu(false) }}
                         asChild
-                        variant={pathname === "/" ? "link" : "link"}>
-                        <Link href="/">
+                        variant={pathname === `"/"` ? "link" : "link"}>
+                        <Link href={`/${lang}`}>
                             <Image src="/logo-short-black.png" alt="fb-development-logo" width={40} height={40} />
                         </Link>
                     </Button>
@@ -45,7 +45,7 @@ export default function Header({ dictionaries }: any) {
                                 variant={pathname === page.href ? "link" : "link"}
                                 onClick={toggleMenu}
                             >
-                                <Link href={page.href}>
+                                <Link href={`/${lang}/${page.href}`}>
                                     {page.label}
                                 </Link>
                             </Button>

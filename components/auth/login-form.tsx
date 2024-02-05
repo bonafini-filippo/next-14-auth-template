@@ -26,7 +26,7 @@ import Link from "next/link";
 
 
 
-export const LoginForm = ({ dictionaries }: any) => {
+export const LoginForm = ({ dictionaries, lang }: any) => {
     const { loginDict, messages } = dictionaries;
     const searchParams = useSearchParams();
     const callbackUrl = searchParams.get("callbackUrl");
@@ -141,7 +141,7 @@ export const LoginForm = ({ dictionaries }: any) => {
                                                 asChild
                                                 className="px-0 font-normal"
                                             >
-                                                <Link href="/reset">
+                                                <Link href={`/${lang}/reset`}>
                                                     {loginDict.fotgotPassword}
                                                 </Link>
                                             </Button>
