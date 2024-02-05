@@ -26,7 +26,7 @@ import { newPassword } from "@/actions/new-password";
 
 
 
-export const NewPasswordForm = ({ dictionaries }: any) => {
+export const NewPasswordForm = ({ dictionaries, lang }: any) => {
     const { newPasswordDict, messages } = dictionaries;
     const searchParams = useSearchParams();
     const token = searchParams.get("token");
@@ -46,7 +46,7 @@ export const NewPasswordForm = ({ dictionaries }: any) => {
         setError("");
         setSuccess("");
         startTransition(() => {
-            newPassword(values, token).then((data) => {
+            newPassword(values, token, newPasswordDict, messages).then((data) => {
                 setError(data?.error);
                 setSuccess(data?.success);
             })

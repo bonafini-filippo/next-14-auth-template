@@ -18,15 +18,17 @@ import { db } from "@/lib/db";
 import { getTwoFactorConfermationByUserId } from "@/data/two-factor-confermation";
 
 
+
 export const login = async (
     values: z.infer<typeof LoginSchema>,
-    callbackUrl?: string | null
+    callbackUrl?: string | null,
+    loginDict?: any,
+    messages?: any
 ) => {
 
     const validatedFields = LoginSchema.safeParse(values);
-
     if (!validatedFields.success) {
-        return { error: "Invalid fields" };
+        return { error: loginDict.errors.invalidFields };
     }
 
     const { email, password, code } = validatedFields.data;
@@ -34,7 +36,7 @@ export const login = async (
     const existingUser = await getUserByEmail(email);
 
     if (!existingUser || !existingUser.email || !existingUser.password) {
-        return { error: "Email does not exist!" }
+        return { error: loginDict.errors.emailDoesNotExist }
     }
     if (!existingUser.emailVerified) {
         const verificationToken = await generateVerificationToken(existingUser.email);
@@ -42,7 +44,7 @@ export const login = async (
             verificationToken.email,
             verificationToken.token,
         )
-        return { success: "Confermation email sent!" }
+        return { success: loginDict.messages.emailSent }
     }
 
     if (existingUser.isTwoFactorEnabled && existingUser.email) {
@@ -52,17 +54,17 @@ export const login = async (
             );
 
             if (!twoFactorToken) {
-                return { error: "Invalid code!" };
+                return { error: messages.errors.invalidCode };
             }
 
             if (twoFactorToken.token !== code) {
-                return { error: "Invalid code!" };
+                return { error: messages.errors.invalidCode };
             };
 
             const hasExpired = new Date(twoFactorToken.expires) < new Date();
 
             if (hasExpired) {
-                return { error: "Code expired!" };
+                return { error: messages.errors.expiredCode };
             };
 
             await db.twoFactorToken.delete({
@@ -105,9 +107,9 @@ export const login = async (
         if (error instanceof AuthError) {
             switch (error.type) {
                 case "CredentialsSignin":
-                    return { error: "Invalid credentials!" }
+                    return { error: loginDict.errors.invalidCredentials }
                 default:
-                    return { error: "Something went wrong!" }
+                    return { error: messages.errors.generic }
             }
         }
         throw error;

@@ -42,7 +42,7 @@ export const ResetForm = ({ dictionaries }: any) => {
         setError("");
         setSuccess("");
         startTransition(() => {
-            reset(values).then((data) => {
+            reset(values, resetDict).then((data) => {
                 setError(data?.error);
                 setSuccess(data?.success);
             })

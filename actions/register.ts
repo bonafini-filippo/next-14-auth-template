@@ -7,7 +7,9 @@ import { getUserByEmail } from "@/data/user";
 import { generateVerificationToken } from "@/lib/tokens";
 import { sendVerificationMail } from "@/lib/mail";
 
-export const register = async (values: z.infer<typeof RegisterSchema>) => {
+export const register = async (values: z.infer<typeof RegisterSchema>, dictionaries: any) => {
+    const { registerDict } = dictionaries
+
     const validatedFields = RegisterSchema.safeParse(values);
 
     if (!validatedFields.success) {

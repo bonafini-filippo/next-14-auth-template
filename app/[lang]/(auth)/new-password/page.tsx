@@ -17,7 +17,7 @@ const NewPasswordPage = async ({
     const dictionariesForNewPasswordForm = { newPasswordDict, messages };
 
     return (
-        <NewPasswordForm dictionaries={dictionariesForNewPasswordForm} />
+        <NewPasswordForm dictionaries={dictionariesForNewPasswordForm} lang={lang} />
     )
 };
 

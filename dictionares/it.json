@@ -30,7 +30,9 @@
     },
     "messages": {
         "errors": {
-            "generic": "Ops, qualcosa è andato storto!"
+            "generic": "Ops, qualcosa è andato storto!",
+            "invalidCode": "Codice non valido",
+            "expiredCode": "Codice scaduto"
         },
         "common": {
             "backToLogin": "Torna al login"
@@ -56,7 +58,13 @@
     },
     "loginDict": {
         "errors": {
-            "emailWithDiffrentProvider": "Email in uso con un differente provider!"
+            "emailWithDiffrentProvider": "Email in uso con un differente provider!",
+            "invalidFields": "Campi non corretti!",
+            "emailDoesNotExist": "Email inesistente!",
+            "invalidCredentials": "Credenziali non valide"
+        },
+        "messages": {
+            "emailSent": "Email di conferma inviata!"
         },
         "title": "Accedi",
         "loginButtonConfirm": "Accedi",
@@ -67,7 +75,9 @@
     },
     "registerDict": {
         "errors": {
-            "EmailWithDiffrentProvider": "Email in uso con un differente provider!"
+            "EmailWithDiffrentProvider": "Email in uso con un differente provider!",
+            "invalidEmail": "Email non valida!",
+            "emailNotFound": "Email non trovata!"
         },
         "nameField": "Nome",
         "title": "Registrati",
@@ -75,18 +85,38 @@
         "haveAccount": "Hai già un account?"
     },
     "resetDict": {
-        "errors": {},
+        "errors": {
+            "invalidEmail": "Email non valida!",
+            "emailNotFound": "Email non trovata!"
+        },
+        "messages": {
+            "resetSent": "Link di reset inviato!"
+        },
         "title": "Password smarrita?",
         "sendMailButton": "Reimposta la password"
     },
     "newPasswordDict": {
-        "errors": {},
+        "errors": {
+            "missingToken": "Token Mancante!",
+            "invalidFields": "Campi non corretti!",
+            "invalidToken": "Token non valido!",
+            "expiredToken": "Token scaduto!",
+            "emailDoesNotExist": "Email inesistente!"
+        },
+        "messages": {
+            "passwordUpdated": "Password aggiornata!"
+        },
         "title": "Inserisci nuova password",
         "setPasswordButton": "Reimposta la password"
     },
     "newVerificationDict": {
         "errors": {
-            "missingToken": "Token Mancante!"
+            "missingToken": "Token Mancante!",
+            "expiredToken": "Token scaduto!",
+            "emailDoesNotExist": "Email inesistente!"
+        },
+        "messages": {
+            "emailVerified": "Email Verificata!"
         },
         "title": "Verifica account"
     }

@@ -43,7 +43,7 @@ export const RegisterForm = ({ dictionaries }: any) => {
         setError("");
         setSuccess("");
         startTransition(() => {
-            register(values).then((data) => {
+            register(values, dictionaries).then((data) => {
                 setError(data.error);
                 setSuccess(data.success);
             })

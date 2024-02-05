@@ -10,26 +10,30 @@ import { db } from "@/lib/db";
 export const newPassword = async (
     values: z.infer<typeof NewPasswordSchema>,
     token?: string | null,
+    newPasswordDict?: any,
+    messages?: any
 ) => {
+
+
     if (!token) {
-        return { error: "Missing token!" };
+        return { error: newPasswordDict.errors.missingToken };
     };
     const validatedFields = NewPasswordSchema.safeParse(values);
     if (!validatedFields.success) {
-        return { error: "Invalid fields!" };
+        return { error: newPasswordDict.errors.invalidFields };
     };
     const { password } = validatedFields.data;
     const existingToken = await getPasswordResetTokenByToken(token);
     if (!existingToken) {
-        return { error: "Invalid token!" };
+        return { error: newPasswordDict.errors.invalidToken };
     };
     const hasExpired = new Date(existingToken.expires) < new Date();
     if (hasExpired) {
-        return { error: "Token has expired!" };
+        return { error: newPasswordDict.errors.expiredToken };
     };
     const existingUSer = await getUserByEmail(existingToken.email);
     if (!existingUSer) {
-        return { error: "Email does not exist!" }
+        return { error: newPasswordDict.errors.emailDoesNotExist }
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -40,5 +44,5 @@ export const newPassword = async (
     await db.passwordResetToken.delete({
         where: { id: existingToken.id }
     })
-    return { success: "Password updated!" }
+    return { success: newPasswordDict.messages.passwordUpdated }
 }

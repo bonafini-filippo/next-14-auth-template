@@ -17,7 +17,7 @@ const NewverificationPage = async ({
     const dictionariesForNewVerificationForm = { newVerificationDict, messages };
 
     return (
-        <NewVerificationForm dictionaries={dictionariesForNewVerificationForm} />
+        <NewVerificationForm dictionaries={dictionariesForNewVerificationForm} lang={lang} />
     )
 }
 
