@@ -22,7 +22,7 @@
         }
     },
     "userMenu": {
-        "login": "Log In",
+        "login": "Login",
         "register": "Register",
         "dashboard": "Dashboard",
         "settings": "Settings",
@@ -30,15 +30,17 @@
     },
     "messages": {
         "errors": {
-            "generic": "Oops, something went wrong!"
+            "generic": "Oops, something went wrong!",
+            "invalidCode": "Invalid Code",
+            "expiredCode": "Expired Code"
         },
         "common": {
-            "backToLogin": "Back to login"
+            "backToLogin": "Back to Login"
         }
     },
     "homeDict": {
-        "title": "Main Page",
-        "subtitle": "Subtitle of the main page"
+        "title": "Home Page",
+        "subtitle": "Subtitle of the home page"
     },
     "settingsDict": {
         "errors": {},
@@ -56,18 +58,26 @@
     },
     "loginDict": {
         "errors": {
-            "emailWithDiffrentProvider": "Email in use with a different provider!"
+            "emailWithDiffrentProvider": "Email in use with a different provider!",
+            "invalidFields": "Incorrect fields!",
+            "emailDoesNotExist": "Email does not exist!",
+            "invalidCredentials": "Invalid credentials"
+        },
+        "messages": {
+            "emailSent": "Confirmation email sent!"
         },
         "title": "Log In",
         "loginButtonConfirm": "Log In",
         "twoFactorButtonConfirm": "Confirm",
         "noAccount": "Don't have an account?",
-        "fotgotPassword": "Forgot password?",
-        "twoFactorCode": "Two-Factor Authentication"
+        "fotgotPassword": "Forgot Password?",
+        "twoFactorCode:": "Two-Factor Authentication Code"
     },
     "registerDict": {
         "errors": {
-            "EmailWithDiffrentProvider": "Email in use with a different provider!"
+            "EmailWithDiffrentProvider": "Email in use with a different provider!",
+            "invalidEmail": "Invalid Email!",
+            "emailNotFound": "Email not found!"
         },
         "nameField": "Name",
         "title": "Register",
@@ -75,18 +85,38 @@
         "haveAccount": "Already have an account?"
     },
     "resetDict": {
-        "errors": {},
+        "errors": {
+            "invalidEmail": "Invalid Email!",
+            "emailNotFound": "Email not found!"
+        },
+        "messages": {
+            "resetSent": "Reset link sent!"
+        },
         "title": "Forgot Password?",
         "sendMailButton": "Reset Password"
     },
     "newPasswordDict": {
-        "errors": {},
-        "title": "Enter New Password",
+        "errors": {
+            "missingToken": "Missing Token!",
+            "invalidFields": "Incorrect fields!",
+            "invalidToken": "Invalid Token!",
+            "expiredToken": "Expired Token!",
+            "emailDoesNotExist": "Email does not exist!"
+        },
+        "messages": {
+            "passwordUpdated": "Password updated!"
+        },
+        "title": "Enter new password",
         "setPasswordButton": "Reset Password"
     },
     "newVerificationDict": {
         "errors": {
-            "missingToken": "Missing Token!"
+            "missingToken": "Missing Token!",
+            "expiredToken": "Expired Token!",
+            "emailDoesNotExist": "Email does not exist!"
+        },
+        "messages": {
+            "emailVerified": "Email verified!"
         },
         "title": "Account Verification"
     }

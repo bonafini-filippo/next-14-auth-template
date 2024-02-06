@@ -30,15 +30,17 @@
     },
     "messages": {
         "errors": {
-            "generic": "Oops, etwas ist schief gelaufen!"
+            "generic": "Hoppla, etwas ist schief gelaufen!",
+            "invalidCode": "Ungültiger Code",
+            "expiredCode": "Abgelaufener Code"
         },
         "common": {
-            "backToLogin": "Zurück zum Login"
+            "backToLogin": "Zurück zur Anmeldung"
         }
     },
     "homeDict": {
-        "title": "Hauptseite",
-        "subtitle": "Untertitel der Hauptseite"
+        "title": "Startseite",
+        "subtitle": "Untertitel der Startseite"
     },
     "settingsDict": {
         "errors": {},
@@ -56,18 +58,26 @@
     },
     "loginDict": {
         "errors": {
-            "emailWithDiffrentProvider": "E-Mail in Verwendung bei einem anderen Anbieter!"
+            "emailWithDiffrentProvider": "E-Mail wird mit einem anderen Anbieter verwendet!",
+            "invalidFields": "Falsche Felder!",
+            "emailDoesNotExist": "E-Mail existiert nicht!",
+            "invalidCredentials": "Ungültige Anmeldedaten"
+        },
+        "messages": {
+            "emailSent": "Bestätigungs-E-Mail gesendet!"
         },
         "title": "Anmelden",
         "loginButtonConfirm": "Anmelden",
         "twoFactorButtonConfirm": "Bestätigen",
-        "noAccount": "Sie haben kein Konto?",
+        "noAccount": "Sie haben noch kein Konto?",
         "fotgotPassword": "Passwort vergessen?",
-        "twoFactorCode": "Zwei-Faktor-Authentifizierung"
+        "twoFactorCode:": "Zwei-Faktor-Authentifizierungscode"
     },
     "registerDict": {
         "errors": {
-            "EmailWithDiffrentProvider": "E-Mail in Verwendung bei einem anderen Anbieter!"
+            "EmailWithDiffrentProvider": "E-Mail wird mit einem anderen Anbieter verwendet!",
+            "invalidEmail": "Ungültige E-Mail!",
+            "emailNotFound": "E-Mail nicht gefunden!"
         },
         "nameField": "Name",
         "title": "Registrieren",
@@ -75,18 +85,38 @@
         "haveAccount": "Haben Sie bereits ein Konto?"
     },
     "resetDict": {
-        "errors": {},
+        "errors": {
+            "invalidEmail": "Ungültige E-Mail!",
+            "emailNotFound": "E-Mail nicht gefunden!"
+        },
+        "messages": {
+            "resetSent": "Link zum Zurücksetzen gesendet!"
+        },
         "title": "Passwort vergessen?",
         "sendMailButton": "Passwort zurücksetzen"
     },
     "newPasswordDict": {
-        "errors": {},
+        "errors": {
+            "missingToken": "Fehlendes Token!",
+            "invalidFields": "Falsche Felder!",
+            "invalidToken": "Ungültiges Token!",
+            "expiredToken": "Abgelaufenes Token!",
+            "emailDoesNotExist": "E-Mail existiert nicht!"
+        },
+        "messages": {
+            "passwordUpdated": "Passwort aktualisiert!"
+        },
         "title": "Neues Passwort eingeben",
         "setPasswordButton": "Passwort zurücksetzen"
     },
     "newVerificationDict": {
         "errors": {
-            "missingToken": "Fehlendes Token!"
+            "missingToken": "Fehlendes Token!",
+            "expiredToken": "Abgelaufenes Token!",
+            "emailDoesNotExist": "E-Mail existiert nicht!"
+        },
+        "messages": {
+            "emailVerified": "E-Mail verifiziert!"
         },
         "title": "Kontoüberprüfung"
     }
